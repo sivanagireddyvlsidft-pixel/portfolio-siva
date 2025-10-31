@@ -3,76 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amireddy Siva Nagi Reddy | VLSI DFT Engineer</title>
+  <title>Siva Nagi Reddy — DFT Engineer Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="overlay"></div>
 
-  <header class="hero">
-    <h1>Amireddy Siva Nagi Reddy</h1>
-    <h2>VLSI | DFT Engineer</h2>
-    <p class="tagline">Designing Testable Logic for the Silicon Future</p>
-    <div class="buttons">
-      <a href="assets/Siva_Nagi_Reddy.pdf" class="btn" download>📄 Download Resume</a>
-      <a href="#contact" class="btn-outline">💬 Let’s Connect</a>
-    </div>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="logo">SNR</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">What I Do</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I’m a passionate VLSI and DFT Engineer with strong understanding of digital logic and ASIC design flow.
-      I specialize in scan insertion, MBIST, ATPG, and on-chip clock controller concepts.
-      My focus is on developing efficient and testable designs that enhance chip reliability and coverage.
-      I enjoy exploring modern DFT methodologies, compression architectures, and automation through Linux and scripting.
-    </p>
-  </section>
+  <!-- ===== HERO SECTION ===== -->
+  <section id="home" class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <p class="intro-text">Hello, My Name Is</p>
+      <h1 class="name">Siva Nagi Reddy</h1>
+      <h2 class="title">Design for Testability (DFT) Engineer</h2>
+      <p class="desc">
+        A passionate DFT Engineer specializing in Scan Insertion, MBIST, ATPG, and Compression (EDT). 
+        I build efficient test architectures ensuring silicon quality, reliability, and production-readiness.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Contact Me</a>
+        <a href="Siva_Nagi_Reddy-1.pdf" class="btn-secondary" download>Download CV</a>
+      </div>
+    </div>
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <div class="skill-grid">
-      <div class="skill-card"><h3>DFT</h3><p>Scan Insertion, Scan Compression (EDT), ATPG, OCC, JTAG, MBIST, Coverage Analysis</p></div>
-      <div class="skill-card"><h3>Digital Design</h3><p>Combinational & Sequential Logic, FSMs</p></div>
-      <div class="skill-card"><h3>Tools</h3><p>Tessent, QuestaSim, Synopsys DC, GVIM, Cygwin</p></div>
-      <div class="skill-card"><h3>Scripting</h3><p>TCL, Linux Shell</p></div>
-      <div class="skill-card"><h3>Soft Skills</h3><p>Problem Solving, Adaptability, Time Management</p></div>
+    <div class="hero-image">
+      <div class="image-frame">
+        <img src="assets/profile.jpg" alt="Siva Nagi Reddy" />
+      </div>
     </div>
   </section>
 
-  <section class="projects">
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="about">
+    <div class="about-image">
+      <img src="assets/profile.jpg" alt="Siva Nagi Reddy" />
+    </div>
+    <div class="about-content">
+      <h2>Who Am I</h2>
+      <p>
+        I’m a VLSI DFT Engineer trained at <strong>VLSI Guru Institute</strong> with practical experience in hierarchical test design flows. 
+        Skilled in MBIST, Scan Stitching, ATPG, and Compression using Mentor Tessent tools, I ensure each design meets coverage and quality goals.
+      </p>
+      <p>
+        My focus is on automation, coverage improvement, and fault-efficient test solutions for high-performance chips.
+      </p>
+      <div class="about-buttons">
+        <a href="#projects" class="btn-primary small">See My Work</a>
+        <a href="https://www.linkedin.com/in/a-sivanagireddy-729992244" target="_blank" class="btn-secondary small">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="services">
+    <h2>What Can I Do</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Scan Insertion & Stitching</h3>
+        <p>Integrating scan chains, fixing DRCs, and preparing designs for ATPG in multi-core hierarchies.</p>
+      </div>
+      <div class="service-card">
+        <h3>Scan Compression (EDT)</h3>
+        <p>Implementing EDT-based compression to reduce test data volume while improving coverage.</p>
+      </div>
+      <div class="service-card">
+        <h3>MBIST & Coverage</h3>
+        <p>Inserting memory BIST, running test coverage, and validating embedded RAM testing logic.</p>
+      </div>
+      <div class="service-card">
+        <h3>ATPG & Pattern Simulation</h3>
+        <p>Generating fault models, ATPG patterns, and performing serial/parallel scan simulations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="projects">
     <h2>Projects</h2>
-    <div class="project">
-      <h3>MBIST and Scan Insertion (Ongoing)</h3>
-      <p>Worked on hierarchical communication chip designs performing scan stitching, MBIST integration, DRC cleanup, and coverage analysis.</p>
-    </div>
-    <div class="project">
-      <h3>Accident Detection and Notification System</h3>
-      <p>Developed an IoT-based safety monitoring system using sensors, Arduino, and NodeMCU for real-time crash and drowsiness alerts with GPS and cloud data.</p>
+    <div class="project-list">
+      <div class="project-card">
+        <h3>MBIST & Scan Insertion — Communication Chip</h3>
+        <p>
+          Executed MBIST and Scan insertion for hierarchical communication modules (~4K flops/core).
+          Integrated OCC, performed ATPG, compression insertion, and pattern validation.
+        </p>
+        <p class="meta">Tools: Mentor Tessent, QuestaSim</p>
+      </div>
+      <div class="project-card">
+        <h3>Accident Detection & Notification System</h3>
+        <p>
+          Designed an IoT-based accident detection system using Arduino, sensors, and GPS modules with real-time alerting.
+        </p>
+        <p class="meta">Tools: Arduino, NodeMCU, ThingSpeak</p>
+      </div>
     </div>
   </section>
 
-  <section class="education">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>B.Tech in ECE</strong> – 2021–2025</li>
-      <li><strong>Intermediate</strong> – 2019–2021</li>
-      <li><strong>SSC</strong> – 2018–2019</li>
-    </ul>
-  </section>
-
+  <!-- ===== CONTACT ===== -->
   <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>📧 <a href="mailto:sivanagireddy.vlsi.dft@gmail.com">sivanagireddy.vlsi.dft@gmail.com</a></p>
-    <p>📱 +91 7780323890</p>
-    <div class="socials">
-      <a href="#" class="btn-outline">LinkedIn</a>
-      <a href="#" class="btn-outline">GitHub</a>
+    <h2>Get In Touch</h2>
+    <p>Looking to collaborate on VLSI or DFT projects? Let’s connect!</p>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:sivanagireddy.vlsi.dft@gmail.com">sivanagireddy.vlsi.dft@gmail.com</a></p>
+      <p>Phone: +91 77803 23890</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/a-sivanagireddy-729992244" target="_blank">a-sivanagireddy-729992244</a></p>
     </div>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Amireddy Siva Nagi Reddy | VLSI DFT Engineer</p>
+    <p>© <span id="year"></span> Siva Nagi Reddy — VLSI & DFT Engineer</p>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
