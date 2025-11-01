@@ -9,7 +9,7 @@
 <body>
 <!-- ===== Background Video ===== -->
 <!-- ===== Background Video (global, place before content) ===== -->
-  <video autoplay muted loop playsinline id="bg-video">
+  <video autoplay muted loop playsinline preload="auto" id="bg-video">
     <source src="assets/311332.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -236,6 +236,17 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+<!-- Fix small pause when looping video -->
+  <script>
+    const bgVideo = document.getElementById('bg-video');
+    bgVideo.addEventListener('ended', () => {
+      bgVideo.currentTime = 0;
+      bgVideo.play();
+    });
+    // Force play as soon as metadata is loaded (avoids delay at page open)
+  bgVideo.addEventListener('loadeddata', () => {
+    bgVideo.play().catch(err => console.log('Autoplay prevented:', err));
+  });
   </script>
 </body>
 </html>
