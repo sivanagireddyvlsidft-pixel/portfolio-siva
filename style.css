@@ -1,4 +1,4 @@
-/* ===== Global Reset ===== */
+/* ===== Global Reset ===== */  
 * {
   margin: 0;
   padding: 0;
@@ -7,12 +7,49 @@
   scroll-behavior: smooth;
 }
 
+/* ===== Background Video ===== */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+  pointer-events: none;
+  filter: brightness(0.55) contrast(1.1) saturate(1); /* dull + balanced tone */
+}
+
+/* ===== Cinematic Overlay for smooth dimming ===== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 100%);
+  z-index: -2;
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+/* ===== Soft gradient edges (top/bottom fade) ===== */
+.overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.5) 100%);
+  pointer-events: none;
+}
+
 /* ===== Body ===== */
 body {
-  background: url("assets/bg.jpg") no-repeat center center/cover;
-  background-attachment: fixed;
-  color: #fff;
-  line-height: 1.6;
+  min-height: 100vh;
+  color: #ffffff;
+  overflow-x: hidden;
 }
 
 /* ===== Navbar ===== */
@@ -21,7 +58,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.65);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -31,7 +68,7 @@ body {
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ff4444;
+  color: #e60808;
   letter-spacing: 2px;
 }
 
@@ -55,10 +92,13 @@ body {
   flex-wrap: wrap;
   padding: 4rem 8%;
   position: relative;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.2);
 }
 
+/* ===== Hero Content ===== */
 .hero-content {
   flex: 1;
   min-width: 320px;
@@ -67,7 +107,7 @@ body {
 }
 
 .hero-content .intro-text {
-  color: #ff4b4b;
+  color: #f3f3f3;
   font-size: 1rem;
 }
 
@@ -152,7 +192,7 @@ body {
   align-items: center;
   padding: 4rem 10%;
   gap: 2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   margin: 2rem auto;
@@ -205,7 +245,7 @@ body {
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   padding: 1.5rem;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 224, 255, 0.2);
@@ -235,7 +275,7 @@ body {
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   padding: 1.5rem;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 224, 255, 0.2);
@@ -245,12 +285,92 @@ body {
   color: #00e0ff;
   margin-bottom: 0.8rem;
 }
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card-link .project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card-link .project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.open-pdf {
+  font-size: 0.9rem;
+  color: #00ffff;
+  margin-top: 5px;
+}
+/* ===== BLOG SECTION ===== */
+.blog {
+  padding: 80px 10%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.blog h2 {
+  font-size: 2.0rem;
+  margin-bottom: 20px;
+  color: #00ffff;
+}
+
+.blog-intro {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  color: #ddd;
+  font-size: 1rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.blog-card {
+  display: block;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 22px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.12);
+}
+
+.blog-card h3 {
+  color: #00ffff;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.blog-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.read-more {
+  font-size: 0.9rem;
+  color: #00ffff;
+  font-weight: 500;
+}
+
 
 /* ===== Contact Section ===== */
 .contact {
   padding: 4rem 10%;
   text-align: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
   border-radius: 20px;
   margin: 2rem auto;
@@ -338,4 +458,72 @@ footer {
   .project-list {
     grid-template-columns: 1fr;
   }
+}
+/* ===== TECHNICAL SKILLS ===== */
+.technical-skills {
+  padding: 80px 10%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  margin-top: 60px;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.technical-skills h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #00ffff;
+}
+
+.technical-skills ul {
+  list-style-type: "✔ ";
+  padding-left: 30px;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.technical-skills li {
+  margin-bottom: 10px;
+}
+/* ===== DFT WORKFLOW (Compact Version) ===== */
+.workflow {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.workflow h2 {
+  font-size: 1.8rem;
+  color: cyan;
+  margin-bottom: 30px;
+}
+
+.workflow-steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* Reduced spacing between steps */
+}
+
+.workflow-steps .step {
+  background: rgba(0, 40, 60, 0.6);
+  color: #fff;
+  padding: 8px 18px; /* Reduced padding */
+  border-radius: 12px;
+  width: 45%; /* Narrower width */
+  font-size: 0.95rem; /* Smaller text */
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
+}
+
+.workflow-steps .step:hover {
+  transform: scale(1.03);
+  background: rgba(0, 100, 120, 0.6);
+}
+
+.workflow-steps .arrow {
+  color: cyan;
+  font-size: 1rem;
+  margin: 4px 0; /* Reduced vertical gap between boxes */
 }

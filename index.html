@@ -7,6 +7,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<!-- ===== Background Video ===== -->
+<!-- ===== Background Video (global, place before content) ===== -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="assets/311332.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Single global overlay to dim/dull the video.
+       Use CSS .video-overlay to tweak darkness/blur. -->
+  <div class="video-overlay"></div>
+
 
   <!-- ===== NAVBAR ===== -->
   <header class="navbar">
@@ -16,6 +27,7 @@
       <a href="#about">About</a>
       <a href="#services">What I Do</a>
       <a href="#projects">Projects</a>
+      <a href="#blog">DFT Posts</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -39,7 +51,7 @@
 
     <div class="hero-image">
       <div class="image-frame">
-        <img src="assets/profile.jpg" alt="Siva Nagi Reddy" />
+        <img src="assets/1.png" alt="Siva Nagi Reddy" />
       </div>
     </div>
   </section>
@@ -68,6 +80,7 @@
   <!-- ===== SERVICES ===== -->
   <section id="services" class="services">
     <h2>What Can I Do</h2>
+
     <div class="service-grid">
       <div class="service-card">
         <h3>Scan Insertion & Stitching</h3>
@@ -87,28 +100,122 @@
       </div>
     </div>
   </section>
+  <!-- ===== DFT WORKFLOW ===== -->
+<section id="workflow" class="workflow">
+  <h2> DFT Workflow</h2>
+  <div class="workflow-steps">
+    <div class="step"> RTL & Netlist Analysis</div>
+    <div class="arrow">↓</div>
+    <div class="step"> Scan Insertion & Stitching</div>
+    <div class="arrow">↓</div>
+    <div class="step"> MBIST Insertion</div>
+    <div class="arrow">↓</div>
+    <div class="step"> OCC & Compression (EDT)</div>
+    <div class="arrow">↓</div>
+    <div class="step"> ATPG Pattern Generation</div>
+    <div class="arrow">↓</div>
+    <div class="step"> Coverage Analysis & Debug</div>
+  </div>
+</section>
+
+
+
+  <!-- ===== TECHNICAL SKILLS SECTION ===== -->
+<section id="technical-skills" class="technical-skills">
+  <h2>Technical Skills</h2>
+  <div class="skills-content">
+    <ul>
+      <li><strong>Design For Testability:</strong> Scan Insertion, Scan Compression (EDT), ATPG, On-Chip Clock Controller, JTAG and Boundary Scan, Coverage Analysis, MBIST Insertion.</li>
+      <li><strong>Digital Design:</strong> Combinational Logic Design, Sequential Logic Design.</li>
+      <li><strong>Operating Systems:</strong> Linux, Windows.</li>
+      <li><strong>Text Editors:</strong> GVIM, Notepad.</li>
+      <li><strong>Tools and Technologies:</strong> Mentor Graphics Tessent, Cygwin, QuestaSim, Design Compiler.</li>
+      <li><strong>MS Office:</strong> Excel, Microsoft Word.</li>
+      <li><strong>Other Skills:</strong> ASIC Flow, TCL, Communication Skills.</li>
+    </ul>
+  </div>
+</section>
+
 
   <!-- ===== PROJECTS ===== -->
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
-    <div class="project-list">
-      <div class="project-card">
-        <h3>MBIST & Scan Insertion — Communication Chip</h3>
-        <p>
-          Executed MBIST and Scan insertion for hierarchical communication modules (~4K flops/core).
-          Integrated OCC, performed ATPG, compression insertion, and pattern validation.
-        </p>
-        <p class="meta">Tools: Mentor Tessent, QuestaSim</p>
-      </div>
+<section id="projects" class="projects">
+  <h2>Projects</h2>
+  <div class="project-list">
+
+    <!-- ===== Project 1 ===== -->
+    <div class="project-card">
+      <h3>Communication Chip</h3>
+      <p>
+        Executed MBIST and Scan insertion for hierarchical communication modules (~4K flops/core).
+        Integrated OCC, performed ATPG, compression insertion, and pattern validation.
+      </p>
+      <p class="meta">Tools: Mentor Tessent, QuestaSim</p>
+    </div>
+
+    <!-- ===== Project 2 (Navigation Chip) ===== -->
+    <div class="project-card">
+      <h3>Navigation Chip</h3>
+      <p>
+        Worked on a medium-sized navigation design (~42K flops). Performed MBIST insertion, Scan Stitching,
+        and DRC cleanup. Implemented EDT and OCC insertion and conducted ATPG coverage analysis.
+      </p>
+      <p class="meta">Tools: Mentor Tessent, Synopsys DFT Compiler</p>
+    </div>
+
+    <!-- ===== Project 3 (Accident Detection — Clickable PDF) ===== -->
+    <a href="assets/Accident_Detection.pdf" target="_blank" class="project-card-link">
       <div class="project-card">
         <h3>Accident Detection & Notification System</h3>
         <p>
           Designed an IoT-based accident detection system using Arduino, sensors, and GPS modules with real-time alerting.
         </p>
         <p class="meta">Tools: Arduino, NodeMCU, ThingSpeak</p>
+        <p class="open-pdf">📄 Click to View Project </p>
       </div>
-    </div>
-  </section>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== DFT BLOG SECTION ===== -->
+<section id="blog" class="blog">
+  <h2>DFT Knowledge & LinkedIn Posts</h2>
+  <p class="blog-intro">
+    I regularly share insights, concepts, and problem-solving approaches in Design for Testability (DFT) 
+    on LinkedIn. Here are some of my recent topics:
+  </p>
+
+  <div class="blog-grid">
+    <!-- Blog Card 1 -->
+    <a href="https://www.linkedin.com/in/a-sivanagireddy-729992244" target="_blank" class="blog-card">
+      <h3>🔹 Scan Insertion & DRC Fixes</h3>
+      <p>
+        Explained scan stitching flow, clock grouping, and handling scan chain DRCs in hierarchical DFT flow.
+      </p>
+      <span class="read-more">Read on LinkedIn →</span>
+    </a>
+
+    <!-- Blog Card 2 -->
+    <a href="https://www.linkedin.com/in/a-sivanagireddy-729992244" target="_blank" class="blog-card">
+      <h3>🔹 ATPG & EDT Compression</h3>
+      <p>
+        Discussed fault models, test coverage strategies, and EDT architecture to optimize test data volume.
+      </p>
+      <span class="read-more">Read on LinkedIn →</span>
+    </a>
+
+    <!-- Blog Card 3 -->
+    <a href="https://www.linkedin.com/in/a-sivanagireddy-729992244" target="_blank" class="blog-card">
+      <h3>🔹 MBIST & Memory Testing</h3>
+      <p>
+        Covered BIST controllers, algorithms (March C, Checkerboard), and validation methods for SRAM testing.
+      </p>
+      <span class="read-more">Read on LinkedIn →</span>
+    </a>
+  </div>
+</section>
+
+
 
   <!-- ===== CONTACT ===== -->
   <section id="contact" class="contact">
@@ -128,6 +235,7 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
   </script>
 </body>
 </html>
