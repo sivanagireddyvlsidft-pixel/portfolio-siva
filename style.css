@@ -19,6 +19,36 @@
   pointer-events: none;
   filter: brightness(0.55) contrast(1.1) saturate(1); /* dull + balanced tone */
 }
+/* ===== Desktop & Laptop Styles ===== */
+@media (min-width: 769px) {
+  #bg-video {
+    object-fit: cover;
+  }
+}
+
+/* ===== Mobile Optimization ===== */
+@media (max-width: 768px) {
+  #bg-video {
+    position: fixed;
+    width: 100vw;              /* ensure it fits viewport width */
+    height: 100vh;             /* ensure it fits viewport height */
+    object-fit: cover;         /* avoids zoom distortion */
+    opacity: 0.6;
+    filter: brightness(0.8);
+    z-index: -1;
+  }
+
+  body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS/Android */
+  }
+}
+
+/* ===== Optional Body Styling ===== */
+body {
+  color: #fff;
+  background-color: #000; /* fallback if video fails to load */
+}
 
 /* ===== Cinematic Overlay for smooth dimming ===== */
 .overlay {
@@ -526,4 +556,12 @@ footer {
   color: cyan;
   font-size: 1rem;
   margin: 4px 0; /* Reduced vertical gap between boxes */
+}
+@media (max-width: 768px) {
+  #bg-video {
+    opacity: 0.6;       /* make it lighter */
+    filter: brightness(0.8);
+    object-fit: cover;  /* keeps full coverage without zoom */
+    position: fixed;
+  }
 }
