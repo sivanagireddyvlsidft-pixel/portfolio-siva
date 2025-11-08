@@ -7,16 +7,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<!-- ===== Background Video ===== -->
-<!-- ===== Background Video (global, place before content) ===== -->
-  <video autoplay muted loop playsinline preload="metadata" id="bg-video">
-    <source src="assets/3129595-uhd_3840_2160_30fps.mp4" type="video/mp4">
-    Your browser does not support the video tag.
+
+<body>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="assets/3129595-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+    <!-- optional fallback -->
+    Your browser does not support HTML5 video.
   </video>
 
-  <!-- Single global overlay to dim/dull the video.
-       Use CSS .video-overlay to tweak darkness/blur. -->
-  <div class="video-overlay"></div>
+  <div class="overlay"></div>
+
+  <div class="main-content">
+    <!-- ✅ all your sections like navbar, hero, etc go here -->
+  </div>
+</body>
+
 
 
   <!-- ===== NAVBAR ===== -->
@@ -227,46 +232,37 @@
 
 <!-- ===== TEST COVERAGE & PROJECT METRICS ===== -->
 <section id="metrics">
-  <div class="container">
-    <h2>📈 Test Coverage & Project Metrics</h2>
-    
-    <p class="subtext">
-      Key results achieved during my DFT implementation and verification projects.
-    </p>
+  <h2>📈 Test Coverage & Project Metrics</h2>
+  <p class="subtext">Key results achieved during my DFT implementation and verification projects.</p>
 
-    <div class="metrics-grid">
-      <div class="metric-card">
-        <h3 class="counter" data-target="97">0</h3>
-        <p>Stuck-At Fault Coverage</p>
-      </div>
-
-      <div class="metric-card">
-        <h3 class="counter" data-target="94">0</h3>
-        <p>Transition Fault Coverage</p>
-      </div>
-
-      <div class="metric-card">
-        <h3 class="counter" data-target="12">0</h3>
-        <p>MBIST Controllers Integrated</p>
-      </div>
-
-      <div class="metric-card">
-        <h3 class="counter" data-target="100">0</h3>
-        <p>Thousand+ Flops Handled</p>
-      </div>
-
-      <div class="metric-card">
-        <h3 class="counter" data-target="18">0</h3>
-        <p>DFT DRC Issues Debugged</p>
-      </div>
-
-      <div class="metric-card">
-        <h3 class="counter" data-target="6">0</h3>
-        <p>Clock Domains Tested</p>
-      </div>
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <h3 class="counter" data-target="96">0</h3>
+      <p>Stuck-At Fault Coverage</p>
+    </div>
+    <div class="metric-card">
+      <h3 class="counter" data-target="92">0</h3>
+      <p>Transition Fault Coverage</p>
+    </div>
+    <div class="metric-card">
+      <h3 class="counter" data-target="4">0</h3>
+      <p>MBIST Controllers Integrated</p>
+    </div>
+    <div class="metric-card">
+      <h3 class="counter" data-target="50">0</h3>
+      <p>Thousand+ Flops Handled</p>
+    </div>
+    <div class="metric-card">
+      <h3 class="counter" data-target="10">0</h3>
+      <p>DFT DRC Issues Debugged</p>
+    </div>
+    <div class="metric-card">
+      <h3 class="counter" data-target="3">0</h3>
+      <p>Clock Domains Tested</p>
     </div>
   </div>
 </section>
+
 <!-- ===== END TEST COVERAGE & PROJECT METRICS ===== -->
 
 
@@ -363,31 +359,35 @@
 </script>
 
 <script>
-  // Animated metric counters
-  const counters = document.querySelectorAll(".counter");
-  const speed = 100; // lower = faster
-  function animateCounters() {
+  const counters = document.querySelectorAll('.counter');
+  const speed = 150; // lower = faster
+
+  const animateCounters = () => {
     counters.forEach(counter => {
-      const update = () => {
-        const target = +counter.getAttribute("data-target");
-        const current = +counter.innerText;
+      const target = +counter.getAttribute('data-target');
+      const updateCount = () => {
+        const value = +counter.innerText;
         const increment = Math.ceil(target / speed);
-        if (current < target) {
-          counter.innerText = current + increment;
-          setTimeout(update, 25);
+        if (value < target) {
+          counter.innerText = value + increment;
+          setTimeout(updateCount, 25);
         } else {
           counter.innerText = target;
         }
       };
-      update();
+      updateCount();
     });
-  }
+  };
 
-  window.addEventListener("scroll", () => {
-    const section = document.getElementById("metrics");
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) animateCounters();
+  // Animate only when metrics section is visible
+  const metricsSection = document.querySelector('#metrics');
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      observer.disconnect(); // run only once
+    }
   });
+  observer.observe(metricsSection);
 </script>
 
 </body>
