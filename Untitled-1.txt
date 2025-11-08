@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siva Nagi Reddy — DFT Engineer Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ==== BASE RESET ==== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      background: #0a0a0f;
+    }
+
+    /* ==== BACKGROUND VIDEO ==== */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .video-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: -1;
+    }
+
+    /* ==== NAVBAR ==== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(20, 20, 30, 0.4);
+      backdrop-filter: blur(12px);
+      padding: 1rem 3rem;
+      z-index: 100;
+      transition: background 0.4s;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    .navbar .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #00f2fe;
+      letter-spacing: 1px;
+    }
+
+    .navbar nav a {
+      color: #fff;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .navbar nav a:hover {
+      color: #00f2fe;
+      transform: translateY(-2px);
+    }
+
+    /* ==== HERO SECTION ==== */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6rem 8%;
+      min-height: 100vh;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero-content {
+      max-width: 600px;
+      animation: slideInLeft 1.5s ease;
+    }
+
+    .intro-text {
+      color: #bbb;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .name {
+      font-size: 3rem;
+      color: #00f2fe;
+      margin-bottom: 0.5rem;
+      animation: glowText 2.5s infinite alternate;
+    }
+
+    .title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #ddd;
+      margin-bottom: 1rem;
+    }
+
+    .desc {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      color: #000;
+      box-shadow: 0 0 10px #00f2fe66;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 20px #00f2feaa;
+      transform: scale(1.05);
+    }
+
+    .btn-secondary {
+      color: #00f2fe;
+      border: 1px solid #00f2fe;
+    }
+
+    .btn-secondary:hover {
+      background: #00f2fe;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .hero-image img {
+      width: 340px;
+      border-radius: 50%;
+      box-shadow: 0 0 25px #00f2fe55;
+      animation: float 4s ease-in-out infinite;
+      transition: transform 0.3s;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    /* ==== ABOUT ==== */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 5rem 8%;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .about img {
+      width: 280px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00f2fe33;
+      transition: transform 0.4s;
+    }
+
+    .about img:hover {
+      transform: scale(1.1) rotate(3deg);
+    }
+
+    .about-content h2 {
+      color: #00f2fe;
+      margin-bottom: 1rem;
+    }
+
+    .about-content p {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    /* ==== SERVICES ==== */
+    .services {
+      text-align: center;
+      padding: 5rem 8%;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .services h2 {
+      color: #00f2fe;
+      margin-bottom: 2rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+      transform: translateY(0);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #00f2fe33;
+      border-color: #00f2fe;
+    }
+
+    /* ==== PROJECTS ==== */
+    .projects {
+      padding: 5rem 8%;
+      background: rgba(255, 255, 255, 0.05);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .projects h2 {
+      text-align: center;
+      color: #00f2fe;
+      margin-bottom: 2rem;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 1.5rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #00f2fe;
+      box-shadow: 0 0 20px #00f2fe33;
+    }
+
+    .project-card h3 {
+      color: #00f2fe;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card .meta {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* ==== CONTACT ==== */
+    .contact {
+      text-align: center;
+      padding: 5rem 8%;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .contact h2 {
+      color: #00f2fe;
+      margin-bottom: 1rem;
+    }
+
+    .contact a {
+      color: #00f2fe;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact a:hover {
+      color: #4facfe;
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+    }
+
+    /* ==== ANIMATIONS ==== */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes glowText {
+      0% { text-shadow: 0 0 10px #00f2fe, 0 0 20px #00f2fe33; }
+      100% { text-shadow: 0 0 25px #00f2feaa, 0 0 40px #00f2fe77; }
+    }
+
+    /* Scroll reveal for all sections */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; }
+      .hero-image { margin-top: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <video autoplay muted loop playsinline preload="metadata" id="bg-video">
+    <source src="assets/311332.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
+
+  <!-- Keep your full HTML content same (your original sections) -->
+  <!-- The rest of your content stays as you sent earlier -->
+
+  <script>
+    // Keeps your video looping smoothly
+    const bgVideo = document.getElementById('bg-video');
+    bgVideo.addEventListener('ended', () => {
+      bgVideo.currentTime = 0;
+      bgVideo.play();
+    });
+
+    // Scroll animation: show sections as they enter view
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < triggerBottom) section.classList.add('show');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>

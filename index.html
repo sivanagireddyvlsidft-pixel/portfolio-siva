@@ -10,7 +10,7 @@
 <!-- ===== Background Video ===== -->
 <!-- ===== Background Video (global, place before content) ===== -->
   <video autoplay muted loop playsinline preload="metadata" id="bg-video">
-    <source src="assets/311332.mp4" type="video/mp4">
+    <source src="assets/3129595-uhd_3840_2160_30fps.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
@@ -175,7 +175,103 @@
     </a>
 
   </div>
+</section>z
+
+
+<!-- ===== TOOL EXPERTISE SECTION ===== -->
+<section id="tool-expertise">
+  <div class="container">
+    <h2> Tool Expertise</h2>
+    <p class="subtext">Hands-on proficiency with industry tools used in DFT implementation and verification.</p>
+
+    <div class="expertise-grid">
+      <div class="skill-card">
+        <p>Mentor Tessent</p>
+        <div class="stars">★★★★★</div>
+        <small>Expert — Scan Insertion, Compression, ATPG</small>
+      </div>
+
+      <div class="skill-card">
+        <p>Synopsys DFT Compiler</p>
+       <div class="stars">★★★★★</div>
+        <small>Advanced — Hierarchical DFT Flows</small>
+      </div>
+
+      <div class="skill-card">
+        <p>QuestaSim</p>
+        <div class="stars">★★★★★</div>
+        <small>Expert — Simulation & Debug</small>
+      </div>
+
+      <div class="skill-card">
+        <p>Cygwin / Linux</p>
+      <div class="stars">★★★★☆</div>
+        <small>Advanced — Scripting & Automation</small>
+      </div>
+
+      <div class="skill-card">
+        <p>TCL / Perl / Python</p>
+       <div class="stars">★★★★☆</div>
+        <small>Proficient — Tool Automation, Report Parsing</small>
+      </div>
+
+      <div class="skill-card">
+        <p>STA Basics</p>
+        <div class="stars">★★★☆☆</div>
+        <small>Familiar — Timing Arcs & Constraints</small>
+      </div>
+    </div>
+  </div>
 </section>
+<!-- ===== END TOOL EXPERTISE SECTION ===== -->
+
+<!-- ===== TEST COVERAGE & PROJECT METRICS ===== -->
+<section id="metrics">
+  <div class="container">
+    <h2>📈 Test Coverage & Project Metrics</h2>
+    
+    <p class="subtext">
+      Key results achieved during my DFT implementation and verification projects.
+    </p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3 class="counter" data-target="97">0</h3>
+        <p>Stuck-At Fault Coverage</p>
+      </div>
+
+      <div class="metric-card">
+        <h3 class="counter" data-target="94">0</h3>
+        <p>Transition Fault Coverage</p>
+      </div>
+
+      <div class="metric-card">
+        <h3 class="counter" data-target="12">0</h3>
+        <p>MBIST Controllers Integrated</p>
+      </div>
+
+      <div class="metric-card">
+        <h3 class="counter" data-target="100">0</h3>
+        <p>Thousand+ Flops Handled</p>
+      </div>
+
+      <div class="metric-card">
+        <h3 class="counter" data-target="18">0</h3>
+        <p>DFT DRC Issues Debugged</p>
+      </div>
+
+      <div class="metric-card">
+        <h3 class="counter" data-target="6">0</h3>
+        <p>Clock Domains Tested</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== END TEST COVERAGE & PROJECT METRICS ===== -->
+
+
+
+
 
 <!-- ===== DFT BLOG SECTION ===== -->
 <section id="blog" class="blog">
@@ -248,5 +344,51 @@
     bgVideo.play().catch(err => console.log('Autoplay prevented:', err));
   });
   </script>
+
+  <script>
+  // Animate bars on scroll
+  const bars = document.querySelectorAll('#tool-expertise .bar span');
+  function animateBars() {
+    bars.forEach(bar => {
+      const width = bar.style.width;
+      bar.style.width = '0';
+      setTimeout(() => { bar.style.width = width; }, 300);
+    });
+  }
+  window.addEventListener('scroll', () => {
+    const section = document.getElementById('tool-expertise');
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) animateBars();
+  });
+</script>
+
+<script>
+  // Animated metric counters
+  const counters = document.querySelectorAll(".counter");
+  const speed = 100; // lower = faster
+  function animateCounters() {
+    counters.forEach(counter => {
+      const update = () => {
+        const target = +counter.getAttribute("data-target");
+        const current = +counter.innerText;
+        const increment = Math.ceil(target / speed);
+        if (current < target) {
+          counter.innerText = current + increment;
+          setTimeout(update, 25);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      update();
+    });
+  }
+
+  window.addEventListener("scroll", () => {
+    const section = document.getElementById("metrics");
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) animateCounters();
+  });
+</script>
+
 </body>
 </html>

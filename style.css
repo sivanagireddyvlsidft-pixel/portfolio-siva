@@ -572,3 +572,155 @@ footer {
     position: fixed;
   }
 }
+
+/* ===== TOOL EXPERTISE SECTION ===== */
+#tool-expertise {
+  padding: 50px 20px;
+  color: #e6eef8;
+  font-family: "Poppins", sans-serif;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 1100px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+#tool-expertise h2 {
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+#tool-expertise .subtext {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+}
+
+/* Grid Layout */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  text-align: center;           /* 👈 Center align everything */
+  transition: transform 0.3s ease;
+}
+
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(224,177,9,0.15), 0 0 40px rgba(224,177,9,0.05);
+}
+
+
+.skill-card p {
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #10d9b4;
+}
+
+
+.skill-card small {
+  display: block;
+  color: rgba(15, 142, 232, 0.9);  /* Gold glow tone */
+  margin-top: 6px;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
+/* Stars row */
+.skill-card .stars {
+  font-size: 1.1rem;
+  color: #ffd166;              /* gold color */
+  margin: 6px 0 6px 0;         /* spacing above/below stars */
+  letter-spacing: 1px;
+}
+
+.bar {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  height: 8px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #5e84ff, #00d4ff);
+  border-radius: 10px;
+  transition: width 1.2s ease-in-out;
+}
+
+
+/* ===== TEST COVERAGE & PROJECT METRICS ===== */
+#metrics {
+  padding: 70px 20px;
+  color: #e6eef8;
+  font-family: "Poppins", sans-serif;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 70px auto;
+  max-width: 1100px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+}
+
+#metrics h2 {
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+#metrics .subtext {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+}
+
+/* Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 30px 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.metric-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(94, 132, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
+}
+
+.metric-card h3 {
+  font-size: 2.4rem;
+  color: #5e84ff;
+  margin: 0;
+}
+
+.metric-card p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+
