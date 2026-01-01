@@ -9,12 +9,18 @@
 <body>
 
 <body>
-  <div class="bg-image"></div>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="assets/3129595-uhd_3840_2160_30fps.mp4" type="video/mp4" />
+    <!-- optional fallback -->
+    Your browser does not support HTML5 video.
+  </video>
 
-<div class="overlay"></div>
+  <div class="overlay"></div>
 
-<div class="main-content">
-
+  <div class="main-content">
+    <!-- ✅ all your sections like navbar, hero, etc go here -->
+  </div>
+</body>
 
 
   <!-- ===== NAVBAR ===== -->
@@ -117,7 +123,6 @@
 </section>
 
 
-
   <!-- ===== TECHNICAL SKILLS SECTION ===== -->
 <section id="technical-skills" class="technical-skills">
   <h2>Technical Skills</h2>
@@ -133,7 +138,6 @@
     </ul>
   </div>
 </section>
-
 
   <!-- ===== PROJECTS ===== -->
 <section id="projects" class="projects">
@@ -174,7 +178,6 @@
 
   </div>
 </section>z
-
 
 <!-- ===== TOOL EXPERTISE SECTION ===== -->
 <section id="tool-expertise">
@@ -261,7 +264,6 @@
 
 
 
-
 <!-- ===== DFT BLOG SECTION ===== -->
 <section id="blog" class="blog">
   <h2>DFT Knowledge & LinkedIn Posts</h2>
@@ -272,7 +274,7 @@
 
   <div class="blog-grid">
     <!-- Blog Card 1 -->
-    <a href="https://www.linkedin.com/in/siva-nagi-reddy-a-729992244" target="_blank" class="blog-card">
+    <a href="https://www.linkedin.com/in/a-sivanagireddy-729992244" target="_blank" class="blog-card">
       <h3>🔹 Scan Insertion & DRC Fixes</h3>
       <p>
         Explained scan stitching flow, clock grouping, and handling scan chain DRCs in hierarchical DFT flow.
@@ -281,7 +283,7 @@
     </a>
 
     <!-- Blog Card 2 -->
-    <a href="https://www.linkedin.com/in/siva-nagi-reddy-a-729992244" target="_blank" class="blog-card">
+    <a href="https://www.linkedin.com/in/a-sivanagireddy-729992244" target="_blank" class="blog-card">
       <h3>🔹 ATPG & EDT Compression</h3>
       <p>
         Discussed fault models, test coverage strategies, and EDT architecture to optimize test data volume.
@@ -290,7 +292,7 @@
     </a>
 
     <!-- Blog Card 3 -->
-    <a href="https://www.linkedin.com/in/siva-nagi-reddy-a-729992244" target="_blank" class="blog-card">
+    <a href="https://www.linkedin.com/in/a-sivanagireddy-729992244" target="_blank" class="blog-card">
       <h3>🔹 MBIST & Memory Testing</h3>
       <p>
         Covered BIST controllers, algorithms (March C, Checkerboard), and validation methods for SRAM testing.
@@ -301,7 +303,6 @@
 </section>
 
 
-
   <!-- ===== CONTACT ===== -->
   <section id="contact" class="contact">
     <h2>Get In Touch</h2>
@@ -309,7 +310,7 @@
     <div class="contact-info">
       <p>Email: <a href="mailto:sivanagireddy.vlsi.dft@gmail.com">sivanagireddy.vlsi.dft@gmail.com</a></p>
       <p>Phone: +91 77803 23890</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/siva-nagi-reddy-a-729992244" target="_blank">a-sivanagireddy-729992244</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/a-sivanagireddy-729992244" target="_blank">a-sivanagireddy-729992244</a></p>
     </div>
   </section>
 
@@ -318,7 +319,21 @@
     <p>© <span id="year"></span> Siva Nagi Reddy — VLSI & DFT Engineer</p>
   </footer>
 
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+<!-- Fix small pause when looping video -->
+  <script>
+    const bgVideo = document.getElementById('bg-video');
+    bgVideo.addEventListener('ended', () => {
+      bgVideo.currentTime = 0;
+      bgVideo.play();
+    });
+    // Force play as soon as metadata is loaded (avoids delay at page open)
+  bgVideo.addEventListener('loadeddata', () => {
+    bgVideo.play().catch(err => console.log('Autoplay prevented:', err));
+  });
+  </script>
 
   <script>
   // Animate bars on scroll
@@ -371,3 +386,6 @@
 
 </body>
 </html>
+
+
+
