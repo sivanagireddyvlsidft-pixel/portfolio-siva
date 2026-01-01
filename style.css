@@ -776,3 +776,17 @@ footer {
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.85);
 }
+footer {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 60px;
+  color: #ffffff;
+  font-size: 14px;
+  background: transparent;
+}
+
+footer p {
+  opacity: 0.8;
+}
