@@ -9,11 +9,8 @@
 <body>
 
 <body>
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="assets/3129595-uhd_3840_2160_30fps.mp4" type="video/mp4" />
-    <!-- optional fallback -->
-    Your browser does not support HTML5 video.
-  </video>
+  <!-- Replace video with background image -->
+  <div class="bg-image"></div>
 
   <div class="overlay"></div>
 
@@ -186,42 +183,49 @@
   <!-- ===== PROJECTS ===== -->
 <section id="projects" class="projects">
   <h2>Projects</h2>
-  <div class="project-list">
+  
 
-    <!-- ===== Project 1 ===== -->
+   <div class="project-list">
+
+  <a href="assets/PROJECT 1.pdf" target="_blank" class="project-card-link">
     <div class="project-card">
-      <h3>Communication Chip</h3>
+      <h3>DFT-Communication Chip</h3>
       <p>
         Executed MBIST and Scan insertion for hierarchical communication modules (~4K flops/core).
         Integrated OCC, performed ATPG, compression insertion, and pattern validation.
       </p>
-      <p class="meta">Tools: Mentor Tessent, QuestaSim</p>
+      
+      <span class="open-pdf">📋 View Project</span>
     </div>
+  </a>
 
-    <!-- ===== Project 2 (Navigation Chip) ===== -->
+  <a href="assets/PROJECT2.pdf" target="_blank" class="project-card-link">
     <div class="project-card">
-      <h3>Navigation Chip</h3>
+      <h3>DFT-Navigation Chip</h3>
       <p>
-        Worked on a medium-sized navigation design (~42K flops). Performed MBIST insertion, Scan Stitching,
-        and DRC cleanup. Implemented EDT and OCC insertion and conducted ATPG coverage analysis.
+        Worked on a medium-sized navigation design (~42K flops).
+        Performed MBIST, scan stitching, EDT, OCC insertion, and ATPG analysis.
       </p>
-      <p class="meta">Tools: Mentor Tessent, Synopsys DFT Compiler</p>
+      
+      <span class="open-pdf">📋 View Project</span>
     </div>
+  </a>
 
-    <!-- ===== Project 3 (Accident Detection — Clickable PDF) ===== -->
-    <a href="assets/B.tech.pdf" target="_blank" class="project-card-link">
-      <div class="project-card">
-        <h3>Accident Detection & Notification System</h3>
-        <p>
-          Designed an IoT-based accident detection system using Arduino, sensors, and GPS modules with real-time alerting.
-        </p>
-        <p class="meta">Tools: Arduino, NodeMCU, ThingSpeak</p>
-        <p class="open-pdf">📄 Click to View Project </p>
-      </div>
-    </a>
+  <a href="assets/B.tech.pdf" target="_blank" class="project-card-link">
+    <div class="project-card">
+      <h3>Accident Detection & Notification</h3>
+      <h5>B.TECH Project</h5>
+      <p>
+        IoT-based accident detection system using sensors and GPS
+        with real-time alerting.
+      </p>
+      <span class="open-pdf">📋 View Project</span>
+    </div>
+  </a>
 
-  </div>
-</section>z
+</div>
+
+</section>
 
 <!-- ===== TOOL EXPERTISE SECTION ===== -->
 <section id="tool-expertise">
@@ -319,29 +323,29 @@
   <div class="blog-grid">
     <!-- Blog Card 1 -->
     <a href="https://www.linkedin.com/in/siva-nagi-reddy-a-729992244" target="_blank" class="blog-card">
-      <h3>🔹 Scan Insertion & DRC Fixes</h3>
+      <h3> Scan Insertion & DRC Fixes</h3>
       <p>
         Explained scan stitching flow, clock grouping, and handling scan chain DRCs in hierarchical DFT flow.
       </p>
-      <span class="read-more">Read on LinkedIn →</span>
+      <span class="read-more">🔗 Read on LinkedIn →</span>
     </a>
 
     <!-- Blog Card 2 -->
     <a href="https://www.linkedin.com/in/siva-nagi-reddy-a-729992244" target="_blank" class="blog-card">
-      <h3>🔹 ATPG & EDT Compression</h3>
+      <h3> ATPG & EDT Compression</h3>
       <p>
         Discussed fault models, test coverage strategies, and EDT architecture to optimize test data volume.
       </p>
-      <span class="read-more">Read on LinkedIn →</span>
+      <span class="read-more">🔗 Read on LinkedIn →</span>
     </a>
 
     <!-- Blog Card 3 -->
     <a href="https://www.linkedin.com/in/siva-nagi-reddy-a-729992244" target="_blank" class="blog-card">
-      <h3>🔹 MBIST & Memory Testing</h3>
+      <h3> MBIST & Memory Testing</h3>
       <p>
         Covered BIST controllers, algorithms (March C, Checkerboard), and validation methods for SRAM testing.
       </p>
-      <span class="read-more">Read on LinkedIn →</span>
+      <span class="read-more">🔗 Read on LinkedIn →</span>
     </a>
   </div>
 </section>
@@ -353,7 +357,7 @@
     <p>Looking to collaborate on VLSI or DFT projects? Let’s connect!</p>
     <div class="contact-info">
       <p>Email: <a href="mailto:sivanagireddy.vlsi.dft@gmail.com">sivanagireddy.vlsi.dft@gmail.com</a></p>
-      <p>Phone: +91 77803 23890</p>
+      <p>Phone: +91 7780323890</p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/siva-nagi-reddy-a-729992244" target="_blank">a-sivanagireddy-729992244</a></p>
     </div>
   </section>
@@ -366,18 +370,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-<!-- Fix small pause when looping video -->
-  <script>
-    const bgVideo = document.getElementById('bg-video');
-    bgVideo.addEventListener('ended', () => {
-      bgVideo.currentTime = 0;
-      bgVideo.play();
-    });
-    // Force play as soon as metadata is loaded (avoids delay at page open)
-  bgVideo.addEventListener('loadeddata', () => {
-    bgVideo.play().catch(err => console.log('Autoplay prevented:', err));
-  });
-  </script>
+
 
   <script>
   // Animate bars on scroll
